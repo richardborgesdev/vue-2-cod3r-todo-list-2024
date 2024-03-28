@@ -2,7 +2,10 @@
   <div class="task-grid">
     <template v-if="tasks.length">
       <div v-for="(task, index) in tasks" :key="task.name">
-        <task-comp :task="task" @taskDeleted="$emit('taskDeleted', index)"/>
+        <task-comp 
+          :task="task" 
+          @taskDeleted="$emit('taskDeleted', index)" 
+          @taskStateChanged="$emit('taskStateChanged', index)"/>
       </div>
     </template>
     <p class="no-task" v-else>
